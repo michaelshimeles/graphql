@@ -123,6 +123,11 @@ const resolvers = {
         updateGame(_, args) {
             games = games.map((game) => {
                 if (game.id === args.id) {
+                    console.log("game spread", { ...game });
+                    console.log("game no spread", game);
+                    console.log("args.edits", args.edits);
+                    console.log("...args.edits", { ...args.edits });
+                    console.log('final', { ...game, ...args.edits });
                     return { ...game, ...args.edits };
                 }
                 return game;
